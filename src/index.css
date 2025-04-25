@@ -1,0 +1,12 @@
+
+  
+  .custom-nav .nav-link {
+    color: white !important;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+  }
+  
+  .custom-nav .nav-link:hover {
+    color: #ffd700 !important;
+    transform: translateY(-2px);
+  }
+  
