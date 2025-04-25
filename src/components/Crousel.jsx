@@ -6,7 +6,7 @@ import pizza from '../assets/static/pizza.jpg';
 const Crousel = () => {
   return (
     <div>
-      <div id="carouselExampleAutoplaying" className="carousel slide bg-dark-subtle" data-bs-ride="carousel">
+      <div id="carouselExampleAutoplaying" className="carousel slide " data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src={cake} className="w-100 object-fit-contain" style={{ height: '450px' }} alt="cake" />
