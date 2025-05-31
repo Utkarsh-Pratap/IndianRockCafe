@@ -1,59 +1,119 @@
-import React from "react";
-import logoImg from '../assets/static/logo.png'
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import logoImg from "../assets/static/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg" style={{
-    background: "linear-gradient(to right, #fdc830, #f37335)"
-  }}>
-        <div className="container-fluid">
-          <div className="mx-3">
-            <img src={logoImg} style={{width:'70px'}}/>
+    <header className="bg-gradient-to-r from-orange-500 to-yellow-600 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <img src={logoImg} alt="logo" className="w-12 h-12" />
+            <Link
+              to="/"
+              className="text-white text-2xl font-bold tracking-wide"
+            >
+              Indian Rock Cafe
+            </Link>
           </div>
-          <Link to='/' className="navbar-brand text-white fs-4" >
-            Indian Rock Cafe
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse " id="navbarNav">
-            <ul className="navbar-nav ms-auto custom-nav">
-              <li className="nav-item">
-                <Link to='/' className="nav-link active text-white fs-5 " aria-current="page" >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to='/about' className="nav-link text-white fs-5" >
-                  About Us
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to='/menu' className="nav-link text-white fs-5" >
-                  Menu
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to='/contact' className="nav-link text-white fs-5" >
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+
           </div>
+
+          {/* Nav links */}
+          <nav className="hidden md:flex space-x-8">
+            <Link
+              to="/"
+              className="text-white text-lg hover:text-orange-200 transition"
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="text-white text-lg hover:text-orange-200 transition"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/menu"
+              className="text-white text-lg hover:text-orange-200 transition"
+            >
+              Menu
+            </Link>
+            <Link
+              to="/contact"
+              className="text-white text-lg hover:text-orange-200 transition"
+            >
+              Contact Us
+            </Link>
+          </nav>
         </div>
-      </nav>
-    </div>
+      </div>
+
+      {/* Mobile Nav */}
+      {isOpen && (
+        <div className="md:hidden bg-orange-600 px-4 pb-4 pt-2 space-y-2">
+          <Link
+            to="/"
+            className="block text-white text-base hover:text-orange-300 transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="block text-white text-base hover:text-orange-300 transition"
+            onClick={() => setIsOpen(false)}
+          >
+            About Us
+          </Link>
+          <Link
+            to="/menu"
+            className="block text-white text-base hover:text-orange-300 transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Menu
+          </Link>
+          <Link
+            to="/contact"
+            className="block text-white text-base hover:text-orange-300 transition"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact Us
+          </Link>
+        </div>
+      )}
+    </header>
   );
 };
 

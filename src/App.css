@@ -1,13 +1,4 @@
-.custom-nav .nav-link {
-    color: white !important;
-    transition: color 0.3s ease;
-  }
-  
-  .custom-nav .nav-link:hover {
-    color: #ffd700 !important; /* golden hover */
-    text-decoration: underline; /* optional */
-  }
-  
+@import "tailwindcss";
   /* App.css */
 body, html, #root {
   height: 100%;

@@ -1,39 +1,57 @@
-import React from 'react'
+import React from 'react';
 
 const FeedbackForm = () => {
   return (
-    <div className='bg-dark-subtle bg-gradient'>
-      <div className='container d-flex justify-content-center align-items-center gap-1 flex-column'>
+    <div className="bg-white min-h-screen flex items-center justify-center px-6 py-8">
+      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-semibold text-orange-500 text-center mb-4">Feedback Form</h2>
 
-        <h2 style={{ color: "darkorange" }} className='mt-3'>Feedback Fom</h2>
-
-        <form style={{ width: "500px" }} >
-          <div class="mb-3">
-            <label for="exampleInputName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="exampleInputName" />
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputName" class="form-label">Your Feedback</label>
-            <textarea class="form-control" id="exampleInputName" rows="4" placeholder="Enter your feedback here..."></textarea>
-
-          </div>
-          <div class="my-4 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Want updates on Whatsapp</label>
-          </div>
-          <div class="d-flex justify-content-center my-4">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-lg font-medium text-gray-700">Name</label>
+            <input
+              type="text"
+              id="name"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-gray-400"
+              placeholder="Your Name"
+            />
           </div>
 
+          <div>
+            <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email address</label>
+            <input
+              type="email"
+              id="email"
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-gray-400"
+              placeholder="Your Email"
+            />
+            <p className="text-sm text-gray-500 mt-1">We'll never share your email with anyone else.</p>
+          </div>
+
+          <div>
+            <label htmlFor="feedback" className="block text-lg font-medium text-gray-700">Your Feedback</label>
+            <textarea
+              id="feedback"
+              rows="3"
+              placeholder="Enter your feedback here..."
+              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 placeholder:text-gray-400"
+            ></textarea>
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <input type="checkbox" id="whatsapp-updates" className="h-5 w-5 text-orange-500 border-gray-300 rounded" />
+            <label htmlFor="whatsapp-updates" className="text-gray-700">Want updates on WhatsApp</label>
+          </div>
+
+          <div className="flex justify-center">
+            <button type="submit" className="w-full py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FeedbackForm
+export default FeedbackForm;
